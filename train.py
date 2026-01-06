@@ -32,6 +32,13 @@ dataloader_test=torch.utils.data.DataLoader(
     ds_test,
     batch_size=batch_size
 )
+##cpuかgpuを選ぶコード
+device = 'cuda'if torch.cuda.is_available()else'cpu'
+
+model=models.MyModel()
+
+model.to(device)
+
 for imge_batch,label_bach in dataloader_test:
     #print(imge_batch.shape)
     #print(label_bach.shape)
